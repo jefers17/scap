@@ -4,23 +4,22 @@
  */
 package ec.edu.intsuperior.vista;
 
-import ec.edu.intsuperior.modelo.Servicio;
+import ec.edu.intsuperior.modelo.Empleados;
 
 /**
  *
  * @author User
  */
-public class JFServicios extends javax.swing.JInternalFrame {
+public class JFEmpleados extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form JFServicios
+     * Creates new form JFEmpleados
      */
-    public JFServicios() {
-        
+    public JFEmpleados() {
         initComponents();
-        txtID.setEnabled(false);
-        Servicio obj=new Servicio();
-        obj.MostrarServicios(jtaServicios);
+        txtId.setEnabled(false);
+        Empleados obj=new Empleados();
+        obj.MostrarEmpleado(JtEmpleados);
     }
 
     /**
@@ -41,14 +40,24 @@ public class JFServicios extends javax.swing.JInternalFrame {
         btnSalir = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        txtID = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
-        jtServicos = new javax.swing.JScrollPane();
-        jtaServicios = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JtEmpleados = new javax.swing.JTable();
+        txtId = new javax.swing.JTextField();
+        txtIDCargo = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        txtPrimerNombre = new javax.swing.JTextField();
+        txtSegundoNombre = new javax.swing.JTextField();
+        txtPrimerApellido = new javax.swing.JTextField();
+        txtSegundoApellido = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("SERVICIOS"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("EMPLEADOS"));
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jToolBar1.setRollover(true);
 
@@ -88,6 +97,7 @@ public class JFServicios extends javax.swing.JInternalFrame {
         jToolBar1.add(btnActualizar);
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFocusable(false);
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,11 +113,7 @@ public class JFServicios extends javax.swing.JInternalFrame {
         btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btnSalir);
 
-        txtID.setBorder(javax.swing.BorderFactory.createTitledBorder("ID DE SERVICIO"));
-
-        txtDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder("DESCRIPCION"));
-
-        jtaServicios.setModel(new javax.swing.table.DefaultTableModel(
+        JtEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -118,12 +124,30 @@ public class JFServicios extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtaServicios.addMouseListener(new java.awt.event.MouseAdapter() {
+        JtEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtaServiciosMouseClicked(evt);
+                JtEmpleadosMouseClicked(evt);
             }
         });
-        jtServicos.setViewportView(jtaServicios);
+        jScrollPane2.setViewportView(JtEmpleados);
+
+        txtId.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
+
+        txtIDCargo.setBorder(javax.swing.BorderFactory.createTitledBorder("ID DE CARGO"));
+
+        txtCedula.setBorder(javax.swing.BorderFactory.createTitledBorder("CEDULA"));
+
+        txtPrimerNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("PRIMER NOMBRE"));
+
+        txtSegundoNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("SEGUNDO NOMBRE"));
+
+        txtPrimerApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("PRIMER APELLIDO"));
+
+        txtSegundoApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("SEGUNDO APELLIDO"));
+
+        txtTelefono.setBorder(javax.swing.BorderFactory.createTitledBorder("TELEFONO"));
+
+        txtCorreo.setBorder(javax.swing.BorderFactory.createTitledBorder("CORREO"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,24 +155,48 @@ public class JFServicios extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addComponent(txtDescripcion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtServicos, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSegundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIDCargo)
+                            .addComponent(txtCedula)
+                            .addComponent(txtPrimerNombre)
+                            .addComponent(txtSegundoNombre)
+                            .addComponent(txtPrimerApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(txtId))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTelefono)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 9, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jtServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTelefono)
+                    .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCorreo)
+                    .addComponent(txtIDCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPrimerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPrimerApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSegundoApellido)
                 .addContainerGap())
         );
 
@@ -158,11 +206,11 @@ public class JFServicios extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 749, Short.MAX_VALUE)
+            .addGap(0, 1005, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
+            .addGap(0, 376, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("CONSULTAS", jPanel2);
@@ -172,15 +220,16 @@ public class JFServicios extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE))
         );
 
         pack();
@@ -188,33 +237,36 @@ public class JFServicios extends javax.swing.JInternalFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        Servicio obj=new Servicio();
-        obj.InsertarServicio(txtDescripcion);
-        obj.MostrarServicios(jtaServicios);
+        Empleados obj=new Empleados();
+        obj.InsertarEmpleado(txtIDCargo, txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtTelefono, txtCorreo);
+        obj.MostrarEmpleado(JtEmpleados);
+        
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-       Servicio obj=new Servicio();
-        obj.ModificarServicios(txtID, txtDescripcion);
-        obj.MostrarServicios(jtaServicios);
+        Empleados obj=new Empleados();
+        obj.ModificarEmpleado(txtId, txtIDCargo, txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtTelefono, txtCorreo);
+        obj.MostrarEmpleado(JtEmpleados);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        Servicio obj=new Servicio();
-        obj.EliminarCargo(txtID);
-        obj.MostrarServicios(jtaServicios);
+        Empleados obj=new Empleados();
+        obj.EliminarEmpleado(txtId);
+        obj.MostrarEmpleado(JtEmpleados);
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jtaServiciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtaServiciosMouseClicked
+    private void JtEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtEmpleadosMouseClicked
         // TODO add your handling code here:
-        Servicio obj=new Servicio();
-        obj.SeleccionarServicios(jtaServicios, txtID, txtDescripcion);
-    }//GEN-LAST:event_jtaServiciosMouseClicked
+        Empleados obj=new Empleados();
+        obj.SeleccionarEmpleado(JtEmpleados, txtId, txtIDCargo, txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtTelefono, txtCorreo);
+    }//GEN-LAST:event_JtEmpleadosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JtEmpleados;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
@@ -223,11 +275,17 @@ public class JFServicios extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JScrollPane jtServicos;
-    private javax.swing.JTable jtaServicios;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtIDCargo;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtPrimerApellido;
+    private javax.swing.JTextField txtPrimerNombre;
+    private javax.swing.JTextField txtSegundoApellido;
+    private javax.swing.JTextField txtSegundoNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

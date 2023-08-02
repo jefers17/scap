@@ -42,9 +42,9 @@ public class jFSocios extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txtCedula = new javax.swing.JTextField();
         txtPrimerNombre = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtSegundoApellido = new javax.swing.JTextField();
         txtSeguNombre = new javax.swing.JTextField();
-        txtPriApe = new javax.swing.JTextField();
+        txtPriApellido = new javax.swing.JTextField();
         jDatenNacimento = new com.toedter.calendar.JDateChooser();
         txtCorreo = new javax.swing.JTextField();
         txtTeleMovil = new javax.swing.JTextField();
@@ -59,11 +59,14 @@ public class jFSocios extends javax.swing.JInternalFrame {
         txtReferencia = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTSocios = new javax.swing.JTable();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+
+        setBorder(javax.swing.BorderFactory.createTitledBorder("SOCIOS"));
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jToolBar2.setRollover(true);
 
@@ -122,11 +125,11 @@ public class jFSocios extends javax.swing.JInternalFrame {
 
         txtPrimerNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("PRIMER NOMBRE"));
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("SEGUNDO APELLIDO"));
+        txtSegundoApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("SEGUNDO APELLIDO"));
 
         txtSeguNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("SEGUNDO NOMBRE"));
 
-        txtPriApe.setBorder(javax.swing.BorderFactory.createTitledBorder("PRIMER APELLIDO"));
+        txtPriApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("PRIMER APELLIDO"));
 
         jDatenNacimento.setBorder(javax.swing.BorderFactory.createTitledBorder("FECHA DE NACIMIENTO"));
 
@@ -176,36 +179,28 @@ public class jFSocios extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTeleFijo)
+                    .addComponent(txtCorreo)
+                    .addComponent(jDatenNacimento, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                    .addComponent(txtSegundoApellido)
+                    .addComponent(txtPriApellido)
+                    .addComponent(txtSeguNombre)
+                    .addComponent(txtPrimerNombre)
+                    .addComponent(txtCedula)
+                    .addComponent(txtTeleMovil))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTeleFijo)
-                            .addComponent(txtCorreo)
-                            .addComponent(jDatenNacimento, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(jTextField3)
-                            .addComponent(txtPriApe)
-                            .addComponent(txtSeguNombre)
-                            .addComponent(txtPrimerNombre)
-                            .addComponent(txtCedula)
-                            .addComponent(txtTeleMovil))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCanton)
-                            .addComponent(txtProvincia)
-                            .addComponent(txtBarrio)
-                            .addComponent(txtParroquia)
-                            .addComponent(txtCaPrincipal)
-                            .addComponent(txtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCallSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtCanton)
+                    .addComponent(txtProvincia)
+                    .addComponent(txtBarrio)
+                    .addComponent(txtParroquia)
+                    .addComponent(txtCaPrincipal)
+                    .addComponent(txtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCallSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -231,39 +226,34 @@ public class jFSocios extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPriApe, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPriApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(txtBarrio)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSegundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(txtCaPrincipal)))
-                        .addGap(18, 18, 18)
-                        .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDatenNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(txtNumeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jDatenNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCallSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(19, 19, 19)
-                                .addComponent(txtTeleMovil, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtTeleMovil, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtReferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTeleFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(173, 173, 173))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(txtReferencia)))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTeleFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105))))
+                                .addComponent(txtNumeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
 
         jTabbedPane1.addTab("DATOS", jPanel2);
@@ -282,14 +272,14 @@ public class jFSocios extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1017, Short.MAX_VALUE))
+                .addContainerGap(1019, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addContainerGap(468, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CONSULTAS", jPanel3);
@@ -315,15 +305,14 @@ public class jFSocios extends javax.swing.JInternalFrame {
     private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
         // TODO add your handling code here:
         Socios obj = new Socios();
-        obj.InsertarSocio(txtCedula, txtPrimerNombre, txtSeguNombre, txtPriApe, txtCallSecundaria, jDatenNacimento, txtCorreo, txtTeleMovil, txtTeleFijo, txtProvincia, txtCanton, txtParroquia, txtBarrio, txtCaPrincipal, txtNumeCasa, txtCallSecundaria, txtReferencia);
+        obj.InsertarSocio(txtCedula, txtPrimerNombre, txtSeguNombre, txtPriApellido, txtSegundoApellido, jDatenNacimento, txtCorreo, txtTeleMovil, txtTeleFijo, txtProvincia, txtCanton, txtParroquia, txtBarrio, txtCaPrincipal, txtNumeCasa, txtCallSecundaria, txtReferencia);
         obj.MostrarSocio(jTSocios);
-
     }//GEN-LAST:event_btnNuevo1ActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
         Socios obj = new Socios();
-        obj.ModificarSocios(txtCedula, txtPrimerNombre, txtSeguNombre, txtPriApe, txtCallSecundaria, jDatenNacimento, txtCorreo, txtTeleMovil, txtTeleFijo, txtProvincia, txtCanton, txtParroquia, txtBarrio, txtCaPrincipal, txtNumeCasa, txtCallSecundaria, txtReferencia);
+        obj.ModificarSocios(txtCedula, txtPrimerNombre, txtSeguNombre, txtPriApellido, txtSegundoApellido, jDatenNacimento, txtCorreo, txtTeleMovil, txtTeleFijo, txtProvincia, txtCanton, txtParroquia, txtBarrio, txtCaPrincipal, txtNumeCasa, txtCallSecundaria, txtReferencia);
         obj.MostrarSocio(jTSocios);
         
 
@@ -340,7 +329,7 @@ public class jFSocios extends javax.swing.JInternalFrame {
     private void jTSociosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTSociosMouseClicked
         // TODO add your handling code here:
         Socios obj = new Socios();
-        obj.SeleccionarSocios(jTSocios, txtCedula, txtPrimerNombre, txtSeguNombre, txtPriApe, txtCallSecundaria, jDatenNacimento, txtCorreo, txtTeleMovil, txtTeleFijo, txtProvincia, txtCanton, txtParroquia, txtBarrio, txtCaPrincipal, txtNumeCasa, txtCallSecundaria, txtReferencia);
+        obj.SeleccionarSocios(jTSocios, txtCedula, txtPrimerNombre, txtSeguNombre, txtPriApellido, txtSegundoApellido, jDatenNacimento, txtCorreo, txtTeleMovil, txtTeleFijo, txtProvincia, txtCanton, txtParroquia, txtBarrio, txtCaPrincipal, txtNumeCasa, txtCallSecundaria, txtReferencia);
     }//GEN-LAST:event_jTSociosMouseClicked
 
 
@@ -350,8 +339,6 @@ public class jFSocios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevo1;
     private javax.swing.JButton btnSalir;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDatenNacimento;
     private javax.swing.JList<String> jList1;
@@ -361,7 +348,6 @@ public class jFSocios extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTSocios;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTextField txtBarrio;
     private javax.swing.JTextField txtCaPrincipal;
@@ -371,11 +357,12 @@ public class jFSocios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNumeCasa;
     private javax.swing.JTextField txtParroquia;
-    private javax.swing.JTextField txtPriApe;
+    private javax.swing.JTextField txtPriApellido;
     private javax.swing.JTextField txtPrimerNombre;
     private javax.swing.JTextField txtProvincia;
     private javax.swing.JTextField txtReferencia;
     private javax.swing.JTextField txtSeguNombre;
+    private javax.swing.JTextField txtSegundoApellido;
     private javax.swing.JTextField txtTeleFijo;
     private javax.swing.JTextField txtTeleMovil;
     // End of variables declaration//GEN-END:variables

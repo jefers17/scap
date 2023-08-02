@@ -10,7 +10,7 @@ package ec.edu.intsuperior.vista;
  */
 public class Aplicacion {
     public static void main(String[] args) {
-        mdiSCAP_SD1 a= new mdiSCAP_SD1();
+        Login a= new Login();
       a.setVisible(true);
       //this.setVisible(false);
     }

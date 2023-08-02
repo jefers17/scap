@@ -4,23 +4,23 @@
  */
 package ec.edu.intsuperior.vista;
 
-import ec.edu.intsuperior.modelo.Implementos;
+import ec.edu.intsuperior.modelo.Inventario;
 
 /**
  *
  * @author User
  */
-public class JfrImplementos extends javax.swing.JInternalFrame {
+public class JFInventario extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Implementos
+     * Creates new form JFInventario
      */
-    public JfrImplementos() {
+    public JFInventario() {
         initComponents();
-        txtID.setEnabled(false);
-        Implementos obj=new Implementos();
-        obj.MostrarImplementos(jtImplementos);
-        
+        txtId.setEnabled(false);
+        txtFecha.setEnabled(false);
+        Inventario obj=new Inventario();
+        obj.MostrarInventario(JTInvetario);
     }
 
     /**
@@ -41,16 +41,21 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         btnSalir = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTImplementos = new javax.swing.JScrollPane();
-        jtImplementos = new javax.swing.JTable();
-        txtID = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtTipo = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTInvetario = new javax.swing.JTable();
+        txtId = new javax.swing.JTextField();
+        txtImplemento = new javax.swing.JTextField();
+        txtFecha = new javax.swing.JTextField();
+        txtStock = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
+        txtEstado = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("IMPLEMENTOS"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("INVENTARIO"));
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jToolBar1.setRollover(true);
 
@@ -90,6 +95,7 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         jToolBar1.add(btnActualizar);
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFocusable(false);
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,12 +106,11 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         jToolBar1.add(btnEliminar);
 
         btnSalir.setText("Salir");
-        btnSalir.setFocusable(false);
         btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btnSalir);
 
-        jtImplementos.setModel(new javax.swing.table.DefaultTableModel(
+        JTInvetario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -116,87 +121,90 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtImplementos.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTInvetario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtImplementosMouseClicked(evt);
+                JTInvetarioMouseClicked(evt);
             }
         });
-        jTImplementos.setViewportView(jtImplementos);
+        jScrollPane1.setViewportView(JTInvetario);
 
-        txtID.setBorder(javax.swing.BorderFactory.createTitledBorder("ID DE IMPLEMENTOS"));
+        txtId.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
 
-        txtNombre.setActionCommand("<Not Set>");
-        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE"));
+        txtImplemento.setBorder(javax.swing.BorderFactory.createTitledBorder("ID Implemento"));
 
-        txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("TIPO"));
+        txtFecha.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha"));
 
-        txtDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder("DESCRIPCION"));
+        txtStock.setBorder(javax.swing.BorderFactory.createTitledBorder("STOCK"));
+
+        txtPrecio.setBorder(javax.swing.BorderFactory.createTitledBorder("PRECIO"));
+
+        txtEstado.setBorder(javax.swing.BorderFactory.createTitledBorder("ESTADO"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTipo)
-                    .addComponent(txtID)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTImplementos, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtId)
+                    .addComponent(txtImplemento)
+                    .addComponent(txtFecha)
+                    .addComponent(txtStock)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTImplementos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtEstado)
+                    .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtImplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 103, Short.MAX_VALUE))
+                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("DATOS", jPanel1);
+        jTabbedPane1.addTab("Datos", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 835, Short.MAX_VALUE)
+            .addGap(0, 967, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 333, Short.MAX_VALUE)
+            .addGap(0, 281, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("CONSULTA", jPanel2);
+        jTabbedPane1.addTab("Consulta", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1))
         );
 
         pack();
@@ -204,36 +212,34 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        Implementos obj = new Implementos();
-        obj.InsertarImplemento(txtNombre, txtTipo, txtDescripcion);
-        obj.MostrarImplementos(jtImplementos);
-        
+         Inventario obj=new Inventario();
+        obj.InsertarInventario(txtImplemento, txtFecha, txtStock, txtPrecio, txtEstado);
+        obj.MostrarInventario(JTInvetario);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.ModificarImplementos(txtID, txtNombre, txtTipo, txtDescripcion);
-        obj.MostrarImplementos(jtImplementos);
-        
+        Inventario obj=new Inventario();
+        obj.ModificarInventario(txtId, txtImplemento, txtFecha, txtStock, txtPrecio, txtEstado);
+        obj.MostrarInventario(JTInvetario);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.EliminarCargo(txtID);
-        obj.MostrarImplementos(jtImplementos);
-        
+        Inventario obj=new Inventario();
+        obj.EliminarInventario(txtId);
+        obj.MostrarInventario(JTInvetario);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jtImplementosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtImplementosMouseClicked
+    private void JTInvetarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTInvetarioMouseClicked
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.SeleccionarImplementos(jtImplementos, txtID, txtNombre, txtTipo, txtDescripcion);
-    }//GEN-LAST:event_jtImplementosMouseClicked
+        Inventario obj=new Inventario();
+        obj.SeleccionarInventario(JTInvetario, txtId, txtImplemento, txtFecha, txtStock, txtPrecio, txtEstado);
+    }//GEN-LAST:event_JTInvetarioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTInvetario;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
@@ -242,13 +248,14 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jTImplementos;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JTable jtImplementos;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTipo;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtImplemento;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables
 }

@@ -42,8 +42,7 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
         mprMedidores = new javax.swing.JMenuItem();
         mprInventario = new javax.swing.JMenuItem();
         mprMantenimiento = new javax.swing.JMenuItem();
-        mprServicios = new javax.swing.JMenuItem();
-        mprCobroAgua = new javax.swing.JMenuItem();
+        mprEmpleados = new javax.swing.JMenuItem();
         mReportes = new javax.swing.JMenu();
         mrEmpleados = new javax.swing.JMenuItem();
         mrCargos = new javax.swing.JMenuItem();
@@ -57,6 +56,9 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
         mrKardex = new javax.swing.JMenuItem();
         mrUsuarios = new javax.swing.JMenuItem();
         mrPlanillas = new javax.swing.JMenuItem();
+        mCobro = new javax.swing.JMenu();
+        mCGenerarPlanilla = new javax.swing.JMenuItem();
+        mCRealizarCobro = new javax.swing.JMenuItem();
         mSeguridad = new javax.swing.JMenu();
         msUsuarios = new javax.swing.JMenuItem();
         msResetearClave = new javax.swing.JMenuItem();
@@ -119,9 +121,19 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
         mProcesos.setText("Procesos");
 
         mprMedidores.setText("Medidores");
+        mprMedidores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mprMedidoresActionPerformed(evt);
+            }
+        });
         mProcesos.add(mprMedidores);
 
         mprInventario.setText("Inventario");
+        mprInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mprInventarioActionPerformed(evt);
+            }
+        });
         mProcesos.add(mprInventario);
 
         mprMantenimiento.setText("Mantenimiento");
@@ -132,11 +144,13 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
         });
         mProcesos.add(mprMantenimiento);
 
-        mprServicios.setText("Servicios");
-        mProcesos.add(mprServicios);
-
-        mprCobroAgua.setText("Cobro de Agua");
-        mProcesos.add(mprCobroAgua);
+        mprEmpleados.setText("Empleados");
+        mprEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mprEmpleadosActionPerformed(evt);
+            }
+        });
+        mProcesos.add(mprEmpleados);
 
         mSCAP_SD1.add(mProcesos);
 
@@ -180,9 +194,34 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
 
         mSCAP_SD1.add(mReportes);
 
+        mCobro.setText("Cobro");
+
+        mCGenerarPlanilla.setText("Generar Planilla");
+        mCGenerarPlanilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mCGenerarPlanillaActionPerformed(evt);
+            }
+        });
+        mCobro.add(mCGenerarPlanilla);
+
+        mCRealizarCobro.setText("Realizar Cobro");
+        mCRealizarCobro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mCRealizarCobroActionPerformed(evt);
+            }
+        });
+        mCobro.add(mCRealizarCobro);
+
+        mSCAP_SD1.add(mCobro);
+
         mSeguridad.setText("Seguridad");
 
         msUsuarios.setText("Usuarios");
+        msUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                msUsuariosActionPerformed(evt);
+            }
+        });
         mSeguridad.add(msUsuarios);
 
         msResetearClave.setText("Resetear clave usuario");
@@ -257,6 +296,48 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
         obj.show(); 
     }//GEN-LAST:event_mpImplementosActionPerformed
 
+    private void mprEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mprEmpleadosActionPerformed
+        // TODO add your handling code here:
+        JFEmpleados obj = new JFEmpleados();
+        this.panel.add(obj);
+        obj.show(); 
+    }//GEN-LAST:event_mprEmpleadosActionPerformed
+
+    private void msUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msUsuariosActionPerformed
+        // TODO add your handling code here:
+        JFUsuarios obj = new JFUsuarios();
+        this.panel.add(obj);
+        obj.show();
+    }//GEN-LAST:event_msUsuariosActionPerformed
+
+    private void mprMedidoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mprMedidoresActionPerformed
+        // TODO add your handling code here:
+        JFMedidores obj=new JFMedidores();
+        this.panel.add(obj);
+        obj.show();
+    }//GEN-LAST:event_mprMedidoresActionPerformed
+
+    private void mprInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mprInventarioActionPerformed
+        // TODO add your handling code here:
+        JFInventario obj = new JFInventario();
+        this.panel.add(obj);
+        obj.show();
+    }//GEN-LAST:event_mprInventarioActionPerformed
+
+    private void mCRealizarCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCRealizarCobroActionPerformed
+        // TODO add your handling code here:
+        JFDEtalleFactura obj=new JFDEtalleFactura();
+        this.panel.add(obj);
+        obj.show();
+    }//GEN-LAST:event_mCRealizarCobroActionPerformed
+
+    private void mCGenerarPlanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCGenerarPlanillaActionPerformed
+        // TODO add your handling code here:
+        JFPlanilla obj = new JFPlanilla();
+        this.panel.add(obj);
+        obj.show();
+    }//GEN-LAST:event_mCGenerarPlanillaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -296,6 +377,9 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu mAyuda;
+    private javax.swing.JMenuItem mCGenerarPlanilla;
+    private javax.swing.JMenuItem mCRealizarCobro;
+    private javax.swing.JMenu mCobro;
     private javax.swing.JMenu mParametros;
     private javax.swing.JMenu mProcesos;
     private javax.swing.JMenu mReportes;
@@ -307,11 +391,10 @@ public class mdiSCAP_SD1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem mpImplementos;
     private javax.swing.JMenuItem mpServicios;
     private javax.swing.JMenuItem mpSocios;
-    private javax.swing.JMenuItem mprCobroAgua;
+    private javax.swing.JMenuItem mprEmpleados;
     private javax.swing.JMenuItem mprInventario;
     private javax.swing.JMenuItem mprMantenimiento;
     private javax.swing.JMenuItem mprMedidores;
-    private javax.swing.JMenuItem mprServicios;
     private javax.swing.JMenuItem mrCargos;
     private javax.swing.JMenuItem mrEmpleados;
     private javax.swing.JMenuItem mrInventario;

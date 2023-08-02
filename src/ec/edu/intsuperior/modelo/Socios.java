@@ -275,7 +275,7 @@ public class Socios {
         //java.sql.Date fechaNacimientoSQL = new java.sql.Date(fechaNacimiento.getDate());
         Conexion objetoConexion = new Conexion();
 
-        String consulta = "all dbscap_sd1.SP_IsertSocios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        String consulta = "call dbscap_sd1.SP_IsertSocios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try {
 
@@ -285,22 +285,20 @@ public class Socios {
             cs.setString(3, getSegundoNombre());
             cs.setString(4, getPrimerApellido());
             cs.setString(5, getSegundoApellido());
-            //java.sql.Date fechaNacimientoSQL = new java.sql.Date(fechaNacimiento.getDate());
-            cs.setDate(6, new java.sql.Date(paramFecha.getDate().getTime()));
-
-            //cs.setDate(6, fechaNacimientoSQL);
-            // cs.setDate(6, new java.sql.Date(fechaNacimiento.getTime()));
-            cs.setString(7, getEmail());
-            cs.setString(8, getTelefonoMovil());
-            cs.setString(9, getTelefonoFijo());
-            cs.setString(10, getProvincia());
-            cs.setString(11, getCanton());
-            cs.setString(12, getParroquia());
-            cs.setString(13, getBarrio());
-            cs.setString(14, getCallePrincipal());
-            cs.setString(15, getNumeroCasa());
-            cs.setString(16, getCalleSecundaria());
-            cs.setString(17, getRefencia());
+            
+                  
+            cs.setString(6, getEmail());
+            cs.setString(7, getTelefonoMovil());
+            cs.setString(8, getTelefonoFijo());
+            cs.setString(9, getProvincia());
+            cs.setString(10, getCanton());
+            cs.setString(11, getParroquia());
+            cs.setString(12, getBarrio());
+            cs.setString(13, getCallePrincipal());
+            cs.setString(14, getNumeroCasa());
+            cs.setString(15, getCalleSecundaria());
+            cs.setString(16, getRefencia());
+            cs.setDate(17, new java.sql.Date(paramFecha.getDate().getTime()));  
 
             cs.execute();
             
@@ -487,7 +485,9 @@ public class Socios {
 
         Conexion objetoConexion = new Conexion();
 
-        String consulta = "call dbscap_sd1.SP_ActualizarSocios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        String consulta =//"insert into socios values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                "call dbscap_sd1.SP_ActualizarSocios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                //"call dbscap_sd1.SP_ActualizarSocios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try {
 
@@ -496,18 +496,20 @@ public class Socios {
             cs.setString(2, getSegundoNombre());
             cs.setString(3, getPrimerApellido());
             cs.setString(4, getSegundoApellido());
-            cs.setDate(5, (java.sql.Date) getFechaNacieminto());
-            cs.setString(6, getEmail());
-            cs.setString(7, getTelefonoMovil());
-            cs.setString(8, getTelefonoFijo());
-            cs.setString(9, getProvincia());
-            cs.setString(10, getCanton());
-            cs.setString(11, getParroquia());
-            cs.setString(12, getBarrio());
-            cs.setString(13, getCallePrincipal());
-            cs.setString(14, getNumeroCasa());
-            cs.setString(15, getCalleSecundaria());
-            cs.setString(16, getRefencia());
+            
+            cs.setString(5, getEmail());
+            cs.setString(6, getTelefonoMovil());
+            cs.setString(7, getTelefonoFijo());
+            cs.setString(8, getProvincia());
+            cs.setString(9, getCanton());
+            cs.setString(10, getParroquia());
+            cs.setString(11, getBarrio());
+            cs.setString(12, getCallePrincipal());
+            cs.setString(13, getNumeroCasa());
+            cs.setString(14, getCalleSecundaria());
+            cs.setString(15, getRefencia());
+            cs.setDate(16, new java.sql.Date(paramFecha.getDate().getTime()));
+            //cs.setDate(16, (java.sql.Date) getFechaNacieminto());
             cs.setString(17, getCedula());
 
             cs.execute();

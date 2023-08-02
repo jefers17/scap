@@ -4,23 +4,23 @@
  */
 package ec.edu.intsuperior.vista;
 
-import ec.edu.intsuperior.modelo.Implementos;
+import ec.edu.intsuperior.modelo.DetalleFacturacion;
 
 /**
  *
  * @author User
  */
-public class JfrImplementos extends javax.swing.JInternalFrame {
+public class JFDEtalleFactura extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Implementos
+     * Creates new form JFDEtalleFactura
      */
-    public JfrImplementos() {
+    public JFDEtalleFactura() {
         initComponents();
         txtID.setEnabled(false);
-        Implementos obj=new Implementos();
-        obj.MostrarImplementos(jtImplementos);
-        
+        txtFecha.setEnabled(false);
+        DetalleFacturacion obj=new DetalleFacturacion();
+        obj.MostrarDetalleCobro(JTDetalle);
     }
 
     /**
@@ -37,20 +37,22 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTImplementos = new javax.swing.JScrollPane();
-        jtImplementos = new javax.swing.JTable();
         txtID = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtTipo = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTDetalle = new javax.swing.JTable();
+        txtIDPlanilla = new javax.swing.JTextField();
+        txtFecha = new javax.swing.JTextField();
+        txtPaldUsuario = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("IMPLEMENTOS"));
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jToolBar1.setRollover(true);
 
@@ -89,6 +91,11 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(btnActualizar);
 
+        btnSalir.setText("Salir");
+        btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnSalir);
+
         btnEliminar.setText("Eliminar");
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -99,13 +106,9 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(btnEliminar);
 
-        btnSalir.setText("Salir");
-        btnSalir.setFocusable(false);
-        btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(btnSalir);
+        txtID.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
 
-        jtImplementos.setModel(new javax.swing.table.DefaultTableModel(
+        JTDetalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -116,87 +119,85 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtImplementos.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtImplementosMouseClicked(evt);
+                JTDetalleMouseClicked(evt);
             }
         });
-        jTImplementos.setViewportView(jtImplementos);
+        jScrollPane1.setViewportView(JTDetalle);
 
-        txtID.setBorder(javax.swing.BorderFactory.createTitledBorder("ID DE IMPLEMENTOS"));
+        txtIDPlanilla.setBorder(javax.swing.BorderFactory.createTitledBorder("IdPlanilla"));
 
-        txtNombre.setActionCommand("<Not Set>");
-        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE"));
+        txtFecha.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha"));
 
-        txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("TIPO"));
-
-        txtDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder("DESCRIPCION"));
+        txtPaldUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder("PaldUsuario"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTipo)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtID)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTImplementos, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(txtIDPlanilla)
+                    .addComponent(txtFecha)
+                    .addComponent(txtPaldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                .addGap(178, 178, 178)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTImplementos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIDPlanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 103, Short.MAX_VALUE))
+                .addComponent(txtPaldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("DATOS", jPanel1);
+        jTabbedPane1.addTab("Datos", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 835, Short.MAX_VALUE)
+            .addGap(0, 756, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 333, Short.MAX_VALUE)
+            .addGap(0, 280, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("CONSULTA", jPanel2);
+        jTabbedPane1.addTab("Consultas", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1))
                 .addContainerGap())
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1))
         );
 
         pack();
@@ -204,36 +205,37 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        Implementos obj = new Implementos();
-        obj.InsertarImplemento(txtNombre, txtTipo, txtDescripcion);
-        obj.MostrarImplementos(jtImplementos);
+        DetalleFacturacion obj=new DetalleFacturacion();
+        obj.InsertarDetalleCobro(txtIDPlanilla, txtFecha, txtPaldUsuario);
+        obj.MostrarDetalleCobro(JTDetalle);
         
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.ModificarImplementos(txtID, txtNombre, txtTipo, txtDescripcion);
-        obj.MostrarImplementos(jtImplementos);
-        
+        DetalleFacturacion obj=new DetalleFacturacion();
+        obj.ModificarDetalleCobro(txtID, txtIDPlanilla, txtFecha, txtPaldUsuario);
+        obj.MostrarDetalleCobro(JTDetalle);
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.EliminarCargo(txtID);
-        obj.MostrarImplementos(jtImplementos);
-        
+       DetalleFacturacion obj=new DetalleFacturacion();
+        obj.EliminarDetalleCobro(txtID);
+        obj.MostrarDetalleCobro(JTDetalle);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jtImplementosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtImplementosMouseClicked
+    private void JTDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTDetalleMouseClicked
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.SeleccionarImplementos(jtImplementos, txtID, txtNombre, txtTipo, txtDescripcion);
-    }//GEN-LAST:event_jtImplementosMouseClicked
+               DetalleFacturacion obj=new DetalleFacturacion();
+        obj.SeleccionarDetalleCobro(JTDetalle, txtID, txtIDPlanilla, txtFecha, txtPaldUsuario);
+        
+    }//GEN-LAST:event_JTDetalleMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTDetalle;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
@@ -242,13 +244,12 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jTImplementos;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JTable jtImplementos;
-    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTipo;
+    private javax.swing.JTextField txtIDPlanilla;
+    private javax.swing.JTextField txtPaldUsuario;
     // End of variables declaration//GEN-END:variables
 }

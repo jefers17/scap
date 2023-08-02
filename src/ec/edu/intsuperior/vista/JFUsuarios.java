@@ -4,23 +4,22 @@
  */
 package ec.edu.intsuperior.vista;
 
-import ec.edu.intsuperior.modelo.Implementos;
+import ec.edu.intsuperior.modelo.Usuarios;
 
 /**
  *
  * @author User
  */
-public class JfrImplementos extends javax.swing.JInternalFrame {
+public class JFUsuarios extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Implementos
+     * Creates new form JFUsuarios
      */
-    public JfrImplementos() {
+    public JFUsuarios() {
         initComponents();
-        txtID.setEnabled(false);
-        Implementos obj=new Implementos();
-        obj.MostrarImplementos(jtImplementos);
-        
+        txtId.setEnabled(false);
+        Usuarios obj=new Usuarios();
+        obj.MostrarUsuario(JTUsuarios);
     }
 
     /**
@@ -41,16 +40,21 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         btnSalir = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTImplementos = new javax.swing.JScrollPane();
-        jtImplementos = new javax.swing.JTable();
-        txtID = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtTipo = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTUsuarios = new javax.swing.JTable();
+        txtId = new javax.swing.JTextField();
+        txtIdEmpleado = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
+        txtClave = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
+        txtRol = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("IMPLEMENTOS"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("USUARIOS"));
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jToolBar1.setRollover(true);
 
@@ -90,6 +94,7 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         jToolBar1.add(btnActualizar);
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFocusable(false);
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,12 +105,11 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         jToolBar1.add(btnEliminar);
 
         btnSalir.setText("Salir");
-        btnSalir.setFocusable(false);
         btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btnSalir);
 
-        jtImplementos.setModel(new javax.swing.table.DefaultTableModel(
+        JTUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -116,52 +120,59 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtImplementos.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtImplementosMouseClicked(evt);
+                JTUsuariosMouseClicked(evt);
             }
         });
-        jTImplementos.setViewportView(jtImplementos);
+        jScrollPane1.setViewportView(JTUsuarios);
 
-        txtID.setBorder(javax.swing.BorderFactory.createTitledBorder("ID DE IMPLEMENTOS"));
+        txtId.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
 
-        txtNombre.setActionCommand("<Not Set>");
-        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE"));
+        txtIdEmpleado.setBorder(javax.swing.BorderFactory.createTitledBorder("ID EMPLEADO"));
 
-        txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("TIPO"));
+        txtUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder("USUARIO"));
+
+        txtClave.setBorder(javax.swing.BorderFactory.createTitledBorder("CONTRASEÑA"));
 
         txtDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder("DESCRIPCION"));
+
+        txtRol.setBorder(javax.swing.BorderFactory.createTitledBorder("ROL"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTipo)
-                    .addComponent(txtID)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTImplementos, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(txtClave)
+                    .addComponent(txtDescripcion)
+                    .addComponent(txtRol)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdEmpleado)
+                    .addComponent(txtUsuario))
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTImplementos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 103, Short.MAX_VALUE))
+                .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtRol, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("DATOS", jPanel1);
@@ -170,32 +181,29 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 835, Short.MAX_VALUE)
+            .addGap(0, 974, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 333, Short.MAX_VALUE)
+            .addGap(0, 337, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("CONSULTA", jPanel2);
+        jTabbedPane1.addTab("CONSULTAS", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -204,36 +212,34 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        Implementos obj = new Implementos();
-        obj.InsertarImplemento(txtNombre, txtTipo, txtDescripcion);
-        obj.MostrarImplementos(jtImplementos);
-        
+        Usuarios obj=new Usuarios();
+        obj.InsertarUsuario(txtIdEmpleado, txtUsuario, txtClave, txtDescripcion, txtRol);
+        obj.MostrarUsuario(JTUsuarios);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.ModificarImplementos(txtID, txtNombre, txtTipo, txtDescripcion);
-        obj.MostrarImplementos(jtImplementos);
-        
+        Usuarios obj=new Usuarios();
+        obj.ModificarUsuario(txtId, txtIdEmpleado, txtUsuario, txtClave, txtDescripcion, txtRol);
+        obj.MostrarUsuario(JTUsuarios);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.EliminarCargo(txtID);
-        obj.MostrarImplementos(jtImplementos);
-        
+        Usuarios obj = new Usuarios();
+        obj.EliminarUsuario(txtId);
+        obj.MostrarUsuario(JTUsuarios);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jtImplementosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtImplementosMouseClicked
+    private void JTUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTUsuariosMouseClicked
         // TODO add your handling code here:
-        Implementos obj=new Implementos();
-        obj.SeleccionarImplementos(jtImplementos, txtID, txtNombre, txtTipo, txtDescripcion);
-    }//GEN-LAST:event_jtImplementosMouseClicked
+        Usuarios obj=new Usuarios();
+        obj.SeleccionarUsuario(JTUsuarios, txtId, txtIdEmpleado, txtUsuario, txtClave, txtDescripcion, txtRol);
+    }//GEN-LAST:event_JTUsuariosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTUsuarios;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
@@ -242,13 +248,14 @@ public class JfrImplementos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jTImplementos;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JTable jtImplementos;
+    private javax.swing.JTextField txtClave;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTipo;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIdEmpleado;
+    private javax.swing.JTextField txtRol;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
